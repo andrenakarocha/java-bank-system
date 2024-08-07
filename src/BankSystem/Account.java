@@ -33,7 +33,6 @@ public class Account {
 
     public boolean withdraw(double value) {
         if (balance < value) {
-            logger.out("Você não tem saldo suficiente para sacar!");
             return false;
         }
         balance -= value;
