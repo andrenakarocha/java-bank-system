@@ -5,16 +5,17 @@ import java.util.Scanner;
 public class Account {
     // Propriedades do objeto da conta
     private static final int MAX_NAME_LENGTH = 12;
-    private String ID;
-    private String email;
+    private String agency;
+    private String account;
     private String name;
     private double balance;
-    private Log logger = new Log();
+    private Log logger;
 
     // Construtor
-    public Account(String ID, String email, String name) {
-        this.ID = ID;
-        this.email = email;
+    public Account(String agency, String account, String name) {
+        this.agency = agency;
+        this.account = account;
+        this.logger = new Log();
         setName(name);
     }
 
