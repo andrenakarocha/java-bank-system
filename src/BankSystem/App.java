@@ -51,17 +51,41 @@ public class App {
 
             switch (op) {
                 case "D": {
-                    System.out.println("Qual valor deseja depositar? ");
-                    double value = input.nextDouble();
-                    account.deposit(value);
+                    double number = 0.0;
+                    boolean validInput = false;
+                    while (!validInput) {
+                        System.out.println("Qual valor deseja depositar? ");
+                        String value = input.nextLine();
+
+                        try {
+                            number = Double.parseDouble(value);
+                            validInput = true;
+                        } catch (NumberFormatException e) {
+                            System.out.println("Resposta inválida, digite um número!");
+                        }
+                    }
+                    account.deposit(number);
                     break;
                 }
 
                 case "S": {
-                    System.out.println("Qual o valor deseja sacar? ");
-                    double value = input.nextDouble();
+                    double number = 0.0;
+                    boolean validInput = false;
+
+                    while (!validInput) {
+                        System.out.println("Qual o valor deseja sacar? ");
+                        String value = input.nextLine();
+
+                        try {
+                            number = Double.parseDouble(value);
+                            validInput = true;
+                        } catch (NumberFormatException e) {
+                            System.out.println("Resposta inválida, digite um número!");
+                        }
+                    }
+
                     // Variável para testar saque
-                    boolean withdrawSucceed = account.withdraw(value);
+                    boolean withdrawSucceed = account.withdraw(number);
                     if (!withdrawSucceed) {
                         System.out.println("Você não possui saldo o suficiente!");
                     }
