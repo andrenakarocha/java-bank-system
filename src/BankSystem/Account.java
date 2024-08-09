@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Account {
     // Propriedades do objeto da conta
-    private static final int MAX_NAME_LENGTH = 12;
+    private static final int MAX_NAME_LENGTH = 20;
     private String agency;
     private String account;
     private String name;
@@ -25,6 +25,10 @@ public class Account {
         } else {
             this.name = name;
         }
+    }
+
+    public String getName() {
+        return this.name;
     }
 
     public void deposit(double value) {

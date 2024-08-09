@@ -46,7 +46,7 @@ public class App {
 
         label:
         while (true) {
-            System.out.println("O que deseja fazer? \nD = Depósito, S = Saque, E = Sair");
+            System.out.println("O que deseja fazer? \nD = Depósito, S = Saque, E = Editar Conta, X = Sair");
             String op = input.nextLine();
 
             switch (op) {
@@ -65,6 +65,25 @@ public class App {
                         }
                     }
                     account.deposit(number);
+                    break;
+                }
+
+                case "E": {
+                    System.out.println("Errou seu nome? Por favor, digite o nome correto abaixo: ");
+                    String newName = input.nextLine();
+                    account.setName(newName);
+                    System.out.println("Seu nome está correto? -> " + account.getName() + "(Sim, Não)");
+                    String answer = input.nextLine();
+
+                    while (!answer.equals("Sim")){
+                        System.out.println("Digite o seu nome correto: ");
+                        newName = input.nextLine();
+                        account.setName(newName);
+                        System.out.println("Seu nome está correto? -> " + account.getName() + "(Sim, Não)");
+                        answer = input.nextLine();
+                    }
+
+                    System.out.println("Perfeito!");
                     break;
                 }
 
@@ -92,7 +111,7 @@ public class App {
                     break;
                 }
 
-                case "E":
+                case "X":
                     main(null);
                     break label;
 
